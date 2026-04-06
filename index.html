@@ -944,15 +944,102 @@
     .scroll-top:hover { transform: translateY(-3px); }
     .scroll-top.visible { display: flex; }
 
+    /* ========== BARRA DE PROGRESSO DE SCROLL ========== */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--vermelho), #ff6b6b);
+      z-index: 2000;
+      transition: width 0.08s linear;
+      border-radius: 0 3px 3px 0;
+    }
+
     /* ========== ANIMAÇÕES ========== */
     .fade-up {
       opacity: 0;
       transform: translateY(32px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-48px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(48px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-scale {
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ========== SHINE NOS CARDS ========== */
+    .diferencial-card,
+    .mvv-card {
+      overflow: hidden;
+      position: relative;
+    }
+    .diferencial-card::after,
+    .mvv-card::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -70%;
+      width: 40%; height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0));
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+    .diferencial-card:hover::after,
+    .mvv-card:hover::after { left: 130%; }
+
+    /* ========== FLUTUAÇÃO NO CARD DA HERO ========== */
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+    .hero-logo-card {
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    /* ========== POP NOS ÍCONES DOS DIFERENCIAIS ========== */
+    @keyframes iconPop {
+      0%   { transform: scale(0.4) rotate(-8deg); opacity: 0; }
+      65%  { transform: scale(1.18) rotate(3deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    .diferencial-icon.popped {
+      animation: iconPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    /* ========== HEADER COMPACTO AO ROLAR ========== */
+    #header.scrolled {
+      background: rgba(28,53,104,1);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.28);
     }
 
     /* ========== DIVISOR ========== */
@@ -1124,17 +1211,17 @@
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <strong>2017</strong>
+            <strong class="counter" data-target="2017" data-start="2010" data-suffix="">2017</strong>
             <span>No mercado</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <strong>100%</strong>
+            <strong class="counter" data-target="100" data-start="0" data-suffix="%">100%</strong>
             <span>Porta a porta</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <strong>0km</strong>
+            <strong class="counter" data-target="0" data-start="0" data-suffix="km">0km</strong>
             <span>Até sua casa</span>
           </div>
         </div>
@@ -1163,7 +1250,7 @@
   <section id="sobre" aria-labelledby="sobre-titulo">
     <div class="container">
       <div class="sobre-grid">
-        <div class="sobre-visual fade-up">
+        <div class="sobre-visual fade-left">
           <div class="sobre-banner">
             <img src="images/logo.png" alt="GvLar">
             <p>
@@ -1176,7 +1263,7 @@
           </div>
         </div>
 
-        <div class="sobre-text fade-up">
+        <div class="sobre-text fade-right">
           <span class="section-tag">Quem somos</span>
           <h2 id="sobre-titulo" class="section-title">Uma história construída de porta em porta</h2>
           <p>A GvLar nasceu em 2017 de forma simples e próxima das pessoas: indo de casa em casa, levando utilidades domésticas e enxovais com condições de pagamento acessíveis.</p>
@@ -1243,32 +1330,32 @@
       <p class="section-desc fade-up">Os princípios que guiam cada atendimento e cada entrega da GvLar.</p>
 
       <div class="mvv-grid">
-        <div class="mvv-card fade-up">
+        <div class="mvv-card fade-scale">
           <div class="mvv-icon"><i class="fa-solid fa-bullseye"></i></div>
           <h3>Missão</h3>
           <p>Levar utilidades domésticas e enxovais de qualidade até a casa das famílias, oferecendo facilidade de pagamento por meio de crediário próprio ou cartões, com atendimento próximo, confiável e humanizado.</p>
         </div>
-        <div class="mvv-card fade-up">
+        <div class="mvv-card fade-scale">
           <div class="mvv-icon"><i class="fa-solid fa-binoculars"></i></div>
           <h3>Visão</h3>
           <p>Tornar-se a principal referência regional em vendas porta a porta modernizadas, reconhecida pela confiança no crediário próprio, excelência operacional e relacionamento duradouro com os clientes.</p>
         </div>
-        <div class="mvv-card fade-up">
+        <div class="mvv-card fade-scale">
           <div class="mvv-icon"><i class="fa-solid fa-gem"></i></div>
           <h3>Cliente em primeiro lugar</h3>
           <p>Colocar as necessidades do cliente acima da venda, oferecendo soluções adequadas à sua realidade e situação financeira.</p>
         </div>
-        <div class="mvv-card fade-up">
+        <div class="mvv-card fade-scale">
           <div class="mvv-icon"><i class="fa-solid fa-handshake"></i></div>
           <h3>Honestidade e transparência</h3>
           <p>Garantir uma compra segura, com parcelamentos claros e condições bem explicadas, proporcionando confiança em cada negociação.</p>
         </div>
-        <div class="mvv-card fade-up">
+        <div class="mvv-card fade-scale">
           <div class="mvv-icon"><i class="fa-solid fa-medal"></i></div>
           <h3>Comprometimento</h3>
           <p>Cumprir prazos, entregas e acordos financeiros com responsabilidade e disciplina, sempre honrando cada compromisso assumido.</p>
         </div>
-        <div class="mvv-card fade-up">
+        <div class="mvv-card fade-scale">
           <div class="mvv-icon"><i class="fa-solid fa-rocket"></i></div>
           <h3>Inovação e tecnologia</h3>
           <p>Utilizar ferramentas e processos modernos para melhorar a experiência do cliente e a eficiência da operação, sem perder a essência humana.</p>
@@ -1323,7 +1410,7 @@
       <p class="section-desc fade-up">Tire dúvidas, solicite uma visita ou conheça mais sobre nossos produtos. Estamos prontos para atender você!</p>
 
       <div class="contato-grid">
-        <div class="contato-info fade-up">
+        <div class="contato-info fade-left">
           <h3>Informações de contato</h3>
 
           <div class="contato-item">
@@ -1375,7 +1462,7 @@
           </div>
         </div>
 
-        <div class="contato-form-box fade-up">
+        <div class="contato-form-box fade-right">
           <h3>Solicite uma visita</h3>
           <p>Preencha o formulário e entraremos em contato para agendar um horário conveniente para você.</p>
 
@@ -1475,6 +1562,9 @@
     <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
   </footer>
 
+  <!-- Barra de progresso de scroll -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- WhatsApp flutuante -->
   <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar pelo WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
@@ -1505,24 +1595,76 @@
       });
     });
 
-    // ========== SCROLL TOP ==========
-    const scrollBtn = document.getElementById('scrollTopBtn');
+    // ========== SCROLL TOP + PROGRESS BAR + HEADER SCROLLED ==========
+    const scrollBtn      = document.getElementById('scrollTopBtn');
+    const progressBar    = document.getElementById('scrollProgress');
+    const header         = document.getElementById('header');
+
     window.addEventListener('scroll', () => {
-      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+      const scrolled = window.scrollY;
+      const total    = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (scrolled / total * 100) + '%';
+      scrollBtn.classList.toggle('visible', scrolled > 400);
+      header.classList.toggle('scrolled', scrolled > 60);
     }, { passive: true });
+
     scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // ========== FADE-UP OBSERVER ==========
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
+    // ========== OBSERVER GENÉRICO (fade-up / fade-left / fade-right / fade-scale) ==========
+    const animEls = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .fade-scale');
+    const animObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
+          setTimeout(() => entry.target.classList.add('visible'), i * 90);
+          animObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
-    fadeEls.forEach(el => observer.observe(el));
+    animEls.forEach(el => animObserver.observe(el));
+
+    // ========== POP NOS ÍCONES DOS DIFERENCIAIS ==========
+    const iconEls = document.querySelectorAll('.diferencial-icon');
+    const iconObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('popped'), i * 100);
+          iconObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    iconEls.forEach(el => iconObserver.observe(el));
+
+    // ========== CONTADOR ANIMADO NAS STATS DA HERO ==========
+    function animateCounter(el) {
+      const target  = parseInt(el.dataset.target);
+      const start   = parseInt(el.dataset.start) || 0;
+      const suffix  = el.dataset.suffix || '';
+      const duration = 1600;
+      const step     = (target - start) / (duration / 16);
+      let current    = start;
+
+      const tick = () => {
+        current += step;
+        if ((step > 0 && current >= target) || (step <= 0 && current <= target)) {
+          el.textContent = target + suffix;
+          return;
+        }
+        el.textContent = Math.round(current) + suffix;
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
 
     // ========== FORM → WHATSAPP ==========
     document.getElementById('contatoForm').addEventListener('submit', function(e) {
