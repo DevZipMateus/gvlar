@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GvLar — Tudo que o seu lar precisa indo até você</title>
+  <meta name="description" content="A GvLar leva utilidades domésticas e enxovais de qualidade até a sua casa, com crediário próprio e atendimento humanizado em São José do Rio Preto e região.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="GvLar">
+  <meta name="theme-color" content="#1C3568">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GvLar — Tudo que o seu lar precisa indo até você">
+  <meta property="og:description" content="A GvLar leva utilidades domésticas e enxovais de qualidade até a sua casa, com crediário próprio e atendimento humanizado em São José do Rio Preto e região.">
+  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GvLar — Tudo que o seu lar precisa indo até você">
+  <meta name="twitter:description" content="A GvLar leva utilidades domésticas e enxovais de qualidade até a sua casa, com crediário próprio e atendimento humanizado.">
+  <meta name="twitter:image" content="images/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:    #1C3568;
+      --vermelho:#C71F26;
+      --gelo:    #E4ECF1;
+      --branco:  #ffffff;
+      --cinza:   #f5f7fa;
+      --texto:   #222831;
+      --texto-leve: #555e6b;
+      --sombra:  0 4px 24px rgba(28,53,104,0.10);
+      --radius:  12px;
+      --ff-titulo: 'Poppins', sans-serif;
+      --ff-corpo:  'Nunito', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-corpo);
+      color: var(--texto);
+      background: var(--branco);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ========== TIPOGRAFIA ========== */
+    h1, h2, h3, h4 { font-family: var(--ff-titulo); line-height: 1.2; }
+
+    .section-tag {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 12px;
+      background: rgba(199,31,38,0.10);
+      color: var(--vermelho);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      color: var(--azul);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: var(--texto-leve);
+      max-width: 600px;
+      margin: 0 auto 56px;
+      font-size: 1.05rem;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section { padding: 96px 0; }
+
+    /* ========== BOTÕES ========== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      font-family: var(--ff-corpo);
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+    }
+
+    .btn:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 3px; }
+
+    .btn-primary {
+      background: var(--vermelho);
+      color: var(--branco);
+      border-color: var(--vermelho);
+    }
+    .btn-primary:hover {
+      background: #a51920;
+      border-color: #a51920;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--branco);
+      border-color: rgba(255,255,255,0.7);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: var(--branco);
+      transform: translateY(-2px);
+    }
+
+    .btn-azul {
+      background: var(--azul);
+      color: var(--branco);
+      border-color: var(--azul);
+    }
+    .btn-azul:hover {
+      background: #152a52;
+      border-color: #152a52;
+      transform: translateY(-2px);
+    }
+
+    /* ========== HEADER ========== */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(28,53,104,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      transition: background 0.3s;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo-link { display: flex; align-items: center; }
+
+    .logo-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    /* NAV DESKTOP */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--branco);
+      background: rgba(255,255,255,0.10);
+    }
+
+    .nav-cta {
+      background: var(--vermelho) !important;
+      color: var(--branco) !important;
+      border-radius: 50px !important;
+      padding: 8px 22px !important;
+    }
+    .nav-cta:hover {
+      background: #a51920 !important;
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      border-radius: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: var(--branco);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* MOBILE NAV */
+    #navMenu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(28,53,104,0.98);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      padding: 20px 0 28px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    #navMenu.open { display: block; }
+    #navMenu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    #navMenu a {
+      display: block;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 32px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    #navMenu a:hover { background: rgba(255,255,255,0.10); }
+    #navMenu .nav-cta-mob {
+      background: var(--vermelho) !important;
+      border-radius: 50px !important;
+      margin-top: 8px;
+    }
+
+    /* ========== HERO ========== */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1C3568 0%, #142654 55%, #1a2e5e 100%);
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(199,31,38,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(228,236,241,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(199,31,38,0.18);
+      border: 1px solid rgba(199,31,38,0.35);
+      color: #f1a0a4;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .hero-badge i { font-size: 0.75rem; color: var(--vermelho); }
+
+    .hero-text h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      color: var(--branco);
+      margin-bottom: 20px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+    .hero-text h1 span { color: var(--vermelho); }
+
+    .hero-text h2 {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: rgba(255,255,255,0.80);
+      font-weight: 400;
+      font-family: var(--ff-corpo);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat strong {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--branco);
+      line-height: 1;
+      font-family: var(--ff-titulo);
+    }
+    .hero-stat span {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .hero-stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+      align-self: stretch;
+    }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card-wrap {
+      position: relative;
+    }
+
+    .hero-logo-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 56px 56px 48px;
+      backdrop-filter: blur(16px);
+      text-align: center;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+    }
+
+    .hero-logo-card img {
+      width: 220px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      margin: 0 auto 28px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(199,31,38,0.25);
+      border: 1px solid rgba(199,31,38,0.4);
+      color: #f9b4b8;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 50px;
+    }
+
+    .hero-float {
+      position: absolute;
+      background: var(--branco);
+      border-radius: 14px;
+      padding: 12px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--azul);
+      white-space: nowrap;
+    }
+    .hero-float i { color: var(--vermelho); font-size: 1rem; }
+    .hero-float-1 { top: -16px; right: -24px; }
+    .hero-float-2 { bottom: -16px; left: -24px; }
+
+    /* ========== SOBRE ========== */
+    #sobre { background: var(--cinza); }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .sobre-visual {
+      position: relative;
+    }
+
+    .sobre-banner {
+      background: linear-gradient(135deg, var(--azul) 0%, #152a52 100%);
+      border-radius: 20px;
+      padding: 56px 40px;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+    .sobre-banner img {
+      width: 180px;
+      height: auto;
+      margin: 0 auto 24px;
+      filter: brightness(0) invert(1);
+    }
+    .sobre-banner p {
+      color: rgba(255,255,255,0.80);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    .sobre-banner p strong { color: var(--branco); font-style: normal; }
+
+    .sobre-badge-ano {
+      position: absolute;
+      top: -16px; right: -16px;
+      background: var(--vermelho);
+      color: var(--branco);
+      border-radius: 14px;
+      padding: 14px 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(199,31,38,0.35);
+    }
+    .sobre-badge-ano strong { display: block; font-size: 2.2rem; font-weight: 800; font-family: var(--ff-titulo); line-height: 1; }
+    .sobre-badge-ano span { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: 0.9; }
+
+    .sobre-text .section-tag { margin: 0 0 12px; }
+    .sobre-text .section-title { text-align: left; }
+
+    .sobre-text p {
+      color: var(--texto-leve);
+      font-size: 1.02rem;
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+
+    .sobre-destaque {
+      background: var(--gelo);
+      border-left: 4px solid var(--vermelho);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 24px 0 32px;
+      color: var(--azul);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ========== DIFERENCIAIS ========== */
+    #diferenciais { background: var(--branco); }
+
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .diferencial-card {
+      background: var(--cinza);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid transparent;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .diferencial-card:hover {
+      border-color: var(--gelo);
+      box-shadow: var(--sombra);
+      transform: translateY(-4px);
+    }
+
+    .diferencial-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--azul), #2d4e8a);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+      color: var(--branco);
+      box-shadow: 0 8px 24px rgba(28,53,104,0.22);
+    }
+
+    .diferencial-card h3 {
+      font-size: 1.05rem;
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+    .diferencial-card p {
+      color: var(--texto-leve);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* ========== MISSÃO / VISÃO / VALORES ========== */
+    #valores { background: var(--azul); }
+
+    #valores .section-tag {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+    }
+    #valores .section-title { color: var(--branco); }
+    #valores .section-desc { color: rgba(255,255,255,0.70); }
+
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .mvv-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      transition: background 0.25s;
+    }
+    .mvv-card:hover { background: rgba(255,255,255,0.11); }
+
+    .mvv-icon {
+      width: 52px; height: 52px;
+      background: var(--vermelho);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--branco);
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(199,31,38,0.4);
+    }
+
+    .mvv-card h3 {
+      color: var(--branco);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .mvv-card p {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    /* ========== PRODUTOS ========== */
+    #produtos { background: var(--cinza); }
+
+    .produtos-cta-box {
+      background: linear-gradient(135deg, #1C3568 0%, #142654 100%);
+      border-radius: 20px;
+      padding: 64px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      box-shadow: 0 16px 56px rgba(28,53,104,0.25);
+    }
+
+    .produtos-cta-text h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--branco);
+      margin-bottom: 12px;
+    }
+    .produtos-cta-text p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      max-width: 480px;
+    }
+
+    .produtos-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    .produto-icon-card {
+      background: var(--branco);
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      text-align: center;
+      box-shadow: var(--sombra);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid rgba(228,236,241,0.8);
+    }
+    .produto-icon-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(28,53,104,0.14);
+    }
+
+    .produto-icon-card i {
+      font-size: 2.2rem;
+      color: var(--vermelho);
+      margin-bottom: 14px;
+    }
+    .produto-icon-card h4 {
+      font-size: 0.92rem;
+      color: var(--azul);
+      font-weight: 700;
+    }
+
+    /* ========== CONTATO ========== */
+    #contato { background: var(--branco); }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contato-info h3 {
+      font-size: 1.4rem;
+      color: var(--azul);
+      margin-bottom: 28px;
+    }
+
+    .contato-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .contato-item-icon {
+      width: 44px; height: 44px;
+      min-width: 44px;
+      background: var(--gelo);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--azul);
+    }
+
+    .contato-item-text strong {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 3px;
+    }
+    .contato-item-text p, .contato-item-text a {
+      color: var(--texto);
+      font-size: 0.97rem;
+      line-height: 1.6;
+    }
+    .contato-item-text a:hover { color: var(--azul); }
+
+    .redes-sociais {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .social-btn {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--branco);
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .social-btn:hover { transform: translateY(-3px); opacity: 0.88; }
+    .social-btn.instagram { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .social-btn.facebook { background: #1877f2; }
+    .social-btn.whatsapp { background: #25d366; }
+
+    .contato-form-box {
+      background: var(--cinza);
+      border-radius: 20px;
+      padding: 40px 36px;
+      border: 1px solid rgba(228,236,241,0.8);
+    }
+
+    .contato-form-box h3 {
+      font-size: 1.3rem;
+      color: var(--azul);
+      margin-bottom: 8px;
+    }
+    .contato-form-box p {
+      color: var(--texto-leve);
+      font-size: 0.93rem;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid rgba(228,236,241,1);
+      border-radius: 10px;
+      font-family: var(--ff-corpo);
+      font-size: 0.97rem;
+      color: var(--texto);
+      background: var(--branco);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--azul); }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-form {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ========== HORÁRIOS ========== */
+    .horarios-box {
+      background: linear-gradient(135deg, var(--vermelho) 0%, #a51920 100%);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      margin-top: 28px;
+      color: var(--branco);
+    }
+    .horarios-box h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .horario-linha {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.92rem;
+    }
+    .horario-linha:last-child { border-bottom: none; }
+    .horario-linha span { opacity: 0.85; }
+    .horario-linha strong { font-weight: 700; }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #0e1f3d;
+      color: rgba(255,255,255,0.75);
+      padding: 56px 0 0;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+    }
+
+    .footer-brand img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      margin-bottom: 18px;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--ff-titulo);
+      color: var(--branco);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.70);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-col ul li a:hover { color: var(--branco); }
+    .footer-col ul li a i { font-size: 0.75rem; color: var(--vermelho); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.83rem; }
+
+    /* ========== WHATSAPP FLUTUANTE ========== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 990;
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--branco);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+    }
+    .whatsapp-float:focus-visible { outline: 3px solid #25d366; outline-offset: 3px; }
+
+    /* ========== SCROLL TOP ========== */
+    .scroll-top {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      z-index: 990;
+      width: 44px; height: 44px;
+      background: var(--azul);
+      color: var(--branco);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(28,53,104,0.35);
+      transition: transform 0.2s, opacity 0.3s;
+    }
+    .scroll-top:hover { transform: translateY(-3px); }
+    .scroll-top.visible { display: flex; }
+
+    /* ========== ANIMAÇÕES ========== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== DIVISOR ========== */
+    .wave-divider {
+      line-height: 0;
+      overflow: hidden;
+    }
+    .wave-divider svg { display: block; }
+
+    /* ========== RESPONSIVIDADE ========== */
+    /* 4K / Widescreen */
+    @media (min-width: 1800px) {
+      .container { max-width: 1440px; }
+    }
+
+    /* Notebook / HD */
+    @media (max-width: 1280px) {
+      .hero-inner { gap: 48px; }
+      .sobre-grid { gap: 48px; }
+    }
+
+    /* Tablet grande */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+      .hero-btns { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-logo-card { padding: 40px; }
+      .hero-logo-card img { width: 160px; }
+      .hero-float-1 { top: -10px; right: -10px; }
+      .hero-float-2 { bottom: -10px; left: -10px; }
+
+      .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-text .section-tag { margin: 0 auto 12px; }
+      .sobre-text .section-title { text-align: center; }
+      .sobre-text p { text-align: center; }
+      .sobre-destaque { text-align: center; border-left: none; border-top: 4px solid var(--vermelho); border-radius: 10px; }
+
+      .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
+      .mvv-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .produtos-icon-grid { grid-template-columns: repeat(2, 1fr); }
+      .produtos-cta-box { flex-direction: column; text-align: center; }
+      .produtos-cta-text p { max-width: 100%; }
+
+      .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Tablet pequeno */
+    @media (max-width: 768px) {
+      section { padding: 72px 0; }
+
+      .diferenciais-grid { grid-template-columns: 1fr; }
+      .mvv-grid { grid-template-columns: 1fr; }
+
+      .produtos-icon-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-brand p { max-width: 100%; }
+
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      section { padding: 56px 0; }
+
+      .hero-logo-card { padding: 32px 24px; }
+      .hero-logo-card img { width: 130px; }
+      .hero-float { display: none; }
+
+      .hero-text h1 { font-size: 2.4rem; }
+
+      .produtos-cta-box { padding: 40px 28px; }
+      .contato-form-box { padding: 28px 20px; }
+
+      .whatsapp-float { bottom: 20px; right: 20px; }
+      .scroll-top { bottom: 20px; left: 20px; }
+
+      .produtos-icon-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+
+    /* Mobile menor */
+    @media (max-width: 360px) {
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" role="banner">
+    <div class="container header-inner">
+      <a href="#hero" class="logo-link" aria-label="GvLar — Página inicial">
+        <img src="images/logo.png" alt="GvLar logotipo" class="logo-img">
+      </a>
+
+      <nav role="navigation" aria-label="Menu principal">
+        <ul class="nav-links">
+          <li><a href="#sobre">Quem somos</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#valores">Valores</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li>
+            <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="nav-cta">
+              <i class="fa-brands fa-whatsapp"></i> Peça já
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <nav id="navMenu" aria-label="Menu mobile" role="navigation">
+    <ul>
+      <li><a href="#sobre" class="nav-mob-link">Quem somos</a></li>
+      <li><a href="#diferenciais" class="nav-mob-link">Diferenciais</a></li>
+      <li><a href="#valores" class="nav-mob-link">Valores</a></li>
+      <li><a href="#produtos" class="nav-mob-link">Produtos</a></li>
+      <li><a href="#contato" class="nav-mob-link">Contato</a></li>
+      <li>
+        <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="nav-mob-link nav-cta-mob">
+          <i class="fa-brands fa-whatsapp"></i> Peça já pelo WhatsApp
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" aria-label="Apresentação">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <i class="fa-solid fa-house-chimney"></i>
+          Tudo que o seu lar precisa
+        </div>
+        <h1>GvL<span>ar</span></h1>
+        <h2>Levamos utilidades domésticas e enxovais de qualidade diretamente até a sua casa, com crediário próprio, atendimento humanizado e condições facilitadas para toda a família.</h2>
+        <div class="hero-btns">
+          <a href="https://wa.me/c/5517982253165" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-brands fa-whatsapp"></i> Ver catálogo
+          </a>
+          <a href="#sobre" class="btn btn-outline">
+            Conheça a GvLar <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>2017</strong>
+            <span>No mercado</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Porta a porta</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <strong>0km</strong>
+            <span>Até sua casa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-wrap">
+          <div class="hero-logo-card">
+            <img src="images/logo.png" alt="GvLar — logotipo">
+            <div class="hero-pill">
+              <i class="fa-solid fa-truck-fast"></i> Entregamos até você
+            </div>
+          </div>
+          <div class="hero-float hero-float-1">
+            <i class="fa-solid fa-credit-card"></i> Crediário próprio
+          </div>
+          <div class="hero-float hero-float-2">
+            <i class="fa-solid fa-shield-check"></i> Compra segura e transparente
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE ========== -->
+  <section id="sobre" aria-labelledby="sobre-titulo">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-visual fade-up">
+          <div class="sobre-banner">
+            <img src="images/logo.png" alt="GvLar">
+            <p>
+              <strong>Desde 2017</strong>, levando praticidade, qualidade e comodidade para dentro de cada lar — de porta em porta, com confiança.
+            </p>
+          </div>
+          <div class="sobre-badge-ano">
+            <strong>+7</strong>
+            <span>anos de história</span>
+          </div>
+        </div>
+
+        <div class="sobre-text fade-up">
+          <span class="section-tag">Quem somos</span>
+          <h2 id="sobre-titulo" class="section-title">Uma história construída de porta em porta</h2>
+          <p>A GvLar nasceu em 2017 de forma simples e próxima das pessoas: indo de casa em casa, levando utilidades domésticas e enxovais com condições de pagamento acessíveis.</p>
+          <p>Desde o começo, a proposta sempre foi clara — facilitar a vida das famílias, oferecendo produtos de qualidade com atendimento próximo, transparente e sem complicação.</p>
+          <p>Com o tempo, evoluímos. Ampliamos nossa variedade de produtos, organizamos melhor a operação e passamos a trabalhar de forma cada vez mais estruturada, sem perder a essência do contato direto com o cliente.</p>
+          <div class="sobre-destaque">
+            "Mais do que vender, a GvLar se posiciona como uma parceira do dia a dia das famílias."
+          </div>
+          <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-brands fa-whatsapp"></i> Fale conosco
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DIFERENCIAIS ========== -->
+  <section id="diferenciais" aria-labelledby="diferenciais-titulo">
+    <div class="container">
+      <span class="section-tag fade-up">Por que nos escolher</span>
+      <h2 id="diferenciais-titulo" class="section-title fade-up">Nossos diferenciais</h2>
+      <p class="section-desc fade-up">Somos a opção mais cômoda e confiável para equipar o seu lar sem sair de casa e sem preocupações financeiras.</p>
+
+      <div class="diferenciais-grid">
+        <div class="diferencial-card fade-up">
+          <div class="diferencial-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Atendimento a domicílio</h3>
+          <p>Levamos os produtos até a sua casa. Você não precisa sair — nós chegamos até você com praticidade e conforto.</p>
+        </div>
+        <div class="diferencial-card fade-up">
+          <div class="diferencial-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+          <h3>Crediário próprio</h3>
+          <p>Parcelamento facilitado com condições claras e transparentes. Sem burocracia, sem surpresas — apenas confiança.</p>
+        </div>
+        <div class="diferencial-card fade-up">
+          <div class="diferencial-icon"><i class="fa-solid fa-credit-card"></i></div>
+          <h3>Diversas formas de pagamento</h3>
+          <p>Aceitamos crediário próprio, cartões de crédito e débito. Você escolhe a forma mais cômoda para o seu bolso.</p>
+        </div>
+        <div class="diferencial-card fade-up">
+          <div class="diferencial-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Atendimento humanizado</h3>
+          <p>Nossa equipe está sempre próxima, pronta para entender as necessidades de cada família e oferecer a melhor solução.</p>
+        </div>
+        <div class="diferencial-card fade-up">
+          <div class="diferencial-icon"><i class="fa-solid fa-star"></i></div>
+          <h3>Produtos de qualidade</h3>
+          <p>Selecionamos cuidadosamente cada produto para garantir qualidade, durabilidade e excelência para o seu lar.</p>
+        </div>
+        <div class="diferencial-card fade-up">
+          <div class="diferencial-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Transparência total</h3>
+          <p>Compra segura, parcelamentos bem explicados e condições claras em cada negociação. Você compra com tranquilidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MISSÃO / VISÃO / VALORES ========== -->
+  <section id="valores" aria-labelledby="valores-titulo">
+    <div class="container">
+      <span class="section-tag fade-up">Nossa essência</span>
+      <h2 id="valores-titulo" class="section-title fade-up">Missão, visão e valores</h2>
+      <p class="section-desc fade-up">Os princípios que guiam cada atendimento e cada entrega da GvLar.</p>
+
+      <div class="mvv-grid">
+        <div class="mvv-card fade-up">
+          <div class="mvv-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Missão</h3>
+          <p>Levar utilidades domésticas e enxovais de qualidade até a casa das famílias, oferecendo facilidade de pagamento por meio de crediário próprio ou cartões, com atendimento próximo, confiável e humanizado.</p>
+        </div>
+        <div class="mvv-card fade-up">
+          <div class="mvv-icon"><i class="fa-solid fa-binoculars"></i></div>
+          <h3>Visão</h3>
+          <p>Tornar-se a principal referência regional em vendas porta a porta modernizadas, reconhecida pela confiança no crediário próprio, excelência operacional e relacionamento duradouro com os clientes.</p>
+        </div>
+        <div class="mvv-card fade-up">
+          <div class="mvv-icon"><i class="fa-solid fa-gem"></i></div>
+          <h3>Cliente em primeiro lugar</h3>
+          <p>Colocar as necessidades do cliente acima da venda, oferecendo soluções adequadas à sua realidade e situação financeira.</p>
+        </div>
+        <div class="mvv-card fade-up">
+          <div class="mvv-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3>Honestidade e transparência</h3>
+          <p>Garantir uma compra segura, com parcelamentos claros e condições bem explicadas, proporcionando confiança em cada negociação.</p>
+        </div>
+        <div class="mvv-card fade-up">
+          <div class="mvv-icon"><i class="fa-solid fa-medal"></i></div>
+          <h3>Comprometimento</h3>
+          <p>Cumprir prazos, entregas e acordos financeiros com responsabilidade e disciplina, sempre honrando cada compromisso assumido.</p>
+        </div>
+        <div class="mvv-card fade-up">
+          <div class="mvv-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h3>Inovação e tecnologia</h3>
+          <p>Utilizar ferramentas e processos modernos para melhorar a experiência do cliente e a eficiência da operação, sem perder a essência humana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRODUTOS ========== -->
+  <section id="produtos" aria-labelledby="produtos-titulo">
+    <div class="container">
+      <span class="section-tag fade-up">O que oferecemos</span>
+      <h2 id="produtos-titulo" class="section-title fade-up">Nossos produtos</h2>
+      <p class="section-desc fade-up">Tudo que o seu lar precisa, com qualidade garantida e entrega na sua porta.</p>
+
+      <div class="produtos-icon-grid fade-up">
+        <div class="produto-icon-card">
+          <i class="fa-solid fa-bed"></i>
+          <h4>Enxovais de cama</h4>
+        </div>
+        <div class="produto-icon-card">
+          <i class="fa-solid fa-bath"></i>
+          <h4>Enxovais de banho</h4>
+        </div>
+        <div class="produto-icon-card">
+          <i class="fa-solid fa-kitchen-set"></i>
+          <h4>Utilidades domésticas</h4>
+        </div>
+        <div class="produto-icon-card">
+          <i class="fa-solid fa-couch"></i>
+          <h4>Decoração e mais</h4>
+        </div>
+      </div>
+
+      <div class="produtos-cta-box fade-up">
+        <div class="produtos-cta-text">
+          <h3>Veja tudo no nosso catálogo</h3>
+          <p>Acesse diretamente pelo WhatsApp e conheça todos os nossos produtos com preços, condições de parcelamento e disponibilidade. É rápido e fácil!</p>
+        </div>
+        <a href="https://wa.me/c/5517982253165" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="white-space:nowrap">
+          <i class="fa-brands fa-whatsapp"></i> Ver catálogo completo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTATO ========== -->
+  <section id="contato" aria-labelledby="contato-titulo">
+    <div class="container">
+      <span class="section-tag fade-up">Fale conosco</span>
+      <h2 id="contato-titulo" class="section-title fade-up">Entre em contato</h2>
+      <p class="section-desc fade-up">Tire dúvidas, solicite uma visita ou conheça mais sobre nossos produtos. Estamos prontos para atender você!</p>
+
+      <div class="contato-grid">
+        <div class="contato-info fade-up">
+          <h3>Informações de contato</h3>
+
+          <div class="contato-item">
+            <div class="contato-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="contato-item-text">
+              <strong>WhatsApp</strong>
+              <p><a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer">(17) 9 8225-3165</a></p>
+            </div>
+          </div>
+
+          <div class="contato-item">
+            <div class="contato-item-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contato-item-text">
+              <strong>E-mail</strong>
+              <p><a href="mailto:gvlarcrediario@gmail.com">gvlarcrediario@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="contato-item">
+            <div class="contato-item-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contato-item-text">
+              <strong>Endereço</strong>
+              <p>Rua Anizia Pelicer Barbosa, 93<br>Perdizes — São José do Rio Preto/SP<br>CEP 15046-692</p>
+            </div>
+          </div>
+
+          <div class="horarios-box">
+            <h4><i class="fa-regular fa-clock"></i> Horário de atendimento</h4>
+            <div class="horario-linha">
+              <span>Segunda a sexta-feira</span>
+              <strong>8h–12h e 15h–20h</strong>
+            </div>
+            <div class="horario-linha">
+              <span>Sábados</span>
+              <strong>8h–16h</strong>
+            </div>
+          </div>
+
+          <div class="redes-sociais">
+            <a href="https://www.instagram.com/gvlar.casa/" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram da GvLar">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61585068299848&locale=pt_BR" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook da GvLar">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="WhatsApp da GvLar">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="contato-form-box fade-up">
+          <h3>Solicite uma visita</h3>
+          <p>Preencha o formulário e entraremos em contato para agendar um horário conveniente para você.</p>
+
+          <form id="contatoForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required>
+              </div>
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(17) 9 0000-0000" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="bairro">Bairro / Cidade</label>
+              <input type="text" id="bairro" name="bairro" placeholder="Ex: Centro — São José do Rio Preto">
+            </div>
+            <div class="form-group">
+              <label for="mensagem">Mensagem (opcional)</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Tem algum produto específico em mente? Conte-nos!"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-form">
+              <i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="GvLar logotipo">
+          <p>Levamos utilidades domésticas e enxovais de qualidade até a sua casa, com crediário próprio e atendimento humanizado em São José do Rio Preto e região.</p>
+          <div class="redes-sociais">
+            <a href="https://www.instagram.com/gvlar.casa/" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61585068299848&locale=pt_BR" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#sobre"><i class="fa-solid fa-chevron-right"></i> Quem somos</a></li>
+            <li><a href="#diferenciais"><i class="fa-solid fa-chevron-right"></i> Diferenciais</a></li>
+            <li><a href="#valores"><i class="fa-solid fa-chevron-right"></i> Missão e valores</a></li>
+            <li><a href="#produtos"><i class="fa-solid fa-chevron-right"></i> Produtos</a></li>
+            <li><a href="#contato"><i class="fa-solid fa-chevron-right"></i> Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li>
+              <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp"></i> (17) 9 8225-3165
+              </a>
+            </li>
+            <li>
+              <a href="mailto:gvlarcrediario@gmail.com">
+                <i class="fa-solid fa-envelope"></i> gvlarcrediario@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/c/5517982253165" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-book-open"></i> Ver catálogo
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 GvLar · CNPJ 55.364.102/0001-88 · São José do Rio Preto/SP</p>
+        <p>Seg–Sex 8h–12h e 15h–20h &nbsp;|&nbsp; Sáb 8h–16h</p>
+      </div>
+    </div>
+
+    <!-- Rodapé MonteSite - Atualização Automática -->
+    <div id="montesite-footer-badge"></div>
+    <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar pelo WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Scroll top -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script>
+    // ========== HAMBURGER MENU ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu   = document.getElementById('navMenu');
+    const navLinks  = navMenu.querySelectorAll('.nav-mob-link');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ========== SCROLL TOP ==========
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ========== FADE-UP OBSERVER ==========
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ========== FORM → WHATSAPP ==========
+    document.getElementById('contatoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome      = document.getElementById('nome').value.trim();
+      const telefone  = document.getElementById('telefone').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const bairro    = document.getElementById('bairro').value.trim();
+      const mensagem  = document.getElementById('mensagem').value.trim();
+
+      if (!nome) { alert('Por favor, informe seu nome.'); return; }
+
+      let msg = `Olá, GvLar! 👋\n\nMeu nome é *${nome}* e gostaria de solicitar uma visita.\n`;
+      if (telefone) msg += `📞 Telefone: ${telefone}\n`;
+      if (email)    msg += `📧 E-mail: ${email}\n`;
+      if (bairro)   msg += `📍 Bairro/Cidade: ${bairro}\n`;
+      if (mensagem) msg += `\n💬 ${mensagem}`;
+
+      window.open(`https://wa.me/5517982253165?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+  </script>
+</body>
+</html>
