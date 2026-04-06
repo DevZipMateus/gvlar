@@ -278,7 +278,10 @@
     /* ========== HERO ========== */
     #hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1C3568 0%, #142654 55%, #1a2e5e 100%);
+      background:
+        linear-gradient(135deg, rgba(28,53,104,0.91) 0%, rgba(20,38,84,0.88) 55%, rgba(26,46,94,0.91) 100%),
+        url('images/bg-hero.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
       display: flex;
       align-items: center;
       padding-top: 72px;
@@ -438,7 +441,12 @@
     .hero-float-2 { bottom: -16px; left: -24px; }
 
     /* ========== SOBRE ========== */
-    #sobre { background: var(--cinza); }
+    #sobre {
+      background:
+        linear-gradient(rgba(245,247,250,0.93), rgba(245,247,250,0.93)),
+        url('images/bg-sobre.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
 
     .sobre-grid {
       display: grid;
@@ -507,7 +515,12 @@
     }
 
     /* ========== DIFERENCIAIS ========== */
-    #diferenciais { background: var(--branco); }
+    #diferenciais {
+      background:
+        linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+        url('images/bg-produtos.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
 
     .diferenciais-grid {
       display: grid;
@@ -554,7 +567,12 @@
     }
 
     /* ========== MISSÃO / VISÃO / VALORES ========== */
-    #valores { background: var(--azul); }
+    #valores {
+      background:
+        linear-gradient(rgba(28,53,104,0.90), rgba(28,53,104,0.90)),
+        url('images/bg-valores.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
 
     #valores .section-tag {
       background: rgba(255,255,255,0.15);
@@ -603,7 +621,12 @@
     }
 
     /* ========== PRODUTOS ========== */
-    #produtos { background: var(--cinza); }
+    #produtos {
+      background:
+        linear-gradient(rgba(245,247,250,0.92), rgba(245,247,250,0.92)),
+        url('images/bg-sobre.jpg') center bottom / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
 
     .produtos-cta-box {
       background: linear-gradient(135deg, #1C3568 0%, #142654 100%);
@@ -661,7 +684,12 @@
     }
 
     /* ========== CONTATO ========== */
-    #contato { background: var(--branco); }
+    #contato {
+      background:
+        linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)),
+        url('images/bg-contato.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
+    }
 
     .contato-grid {
       display: grid;
@@ -952,6 +980,11 @@
 
     /* Tablet grande */
     @media (max-width: 1024px) {
+      /* Desativa parallax em iOS/Android */
+      #hero, #sobre, #diferenciais, #valores, #produtos, #contato {
+        background-attachment: scroll, scroll;
+      }
+
       .nav-links { display: none; }
       .hamburger { display: flex; }
 
