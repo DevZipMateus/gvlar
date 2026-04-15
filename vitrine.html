@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitrine Online — GvLar</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:    #1C3568;
+      --vermelho:#C71F26;
+      --branco:  #ffffff;
+      --ff-titulo: 'Poppins', sans-serif;
+      --ff-corpo:  'Nunito', sans-serif;
+    }
+
+    html, body {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      font-family: var(--ff-corpo);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ========== HEADER ========== */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: 80px;
+      background: rgba(28,53,104,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+
+    .header-inner {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo-link { display: flex; align-items: center; }
+
+    .logo-img {
+      height: 100px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* NAV DESKTOP */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--branco);
+      background: rgba(255,255,255,0.10);
+    }
+
+    .nav-cta {
+      background: var(--vermelho) !important;
+      color: var(--branco) !important;
+      border-radius: 50px !important;
+      padding: 8px 22px !important;
+    }
+    .nav-cta:hover { background: #a51920 !important; }
+
+    .nav-active {
+      background: rgba(255,255,255,0.15) !important;
+      color: var(--branco) !important;
+      border-radius: 8px;
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      border-radius: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2.5px;
+      background: var(--branco);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* MOBILE NAV */
+    #navMenu {
+      display: none;
+      position: fixed;
+      top: 80px; left: 0; right: 0;
+      background: rgba(28,53,104,0.98);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      padding: 20px 0 28px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    #navMenu.open { display: block; }
+    #navMenu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    #navMenu a {
+      display: block;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 32px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    #navMenu a:hover { background: rgba(255,255,255,0.10); }
+    #navMenu .nav-cta-mob {
+      background: var(--vermelho) !important;
+      border-radius: 50px !important;
+      margin-top: 8px;
+    }
+    #navMenu .nav-mob-active {
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* ========== IFRAME ========== */
+    #vitrine-frame {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px - 63px);
+      border: none;
+      display: block;
+    }
+
+    /* ========== BADGE INFERIOR ========== */
+    .vitrine-bottom-badge {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 63px;
+      background: #0e1f3d;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .badge-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge-brand img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+    .badge-brand span {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      font-family: var(--ff-corpo);
+    }
+
+    .badge-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.80);
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: var(--ff-corpo);
+      padding: 8px 20px;
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 50px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .badge-back:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.40);
+    }
+
+    /* ========== RESPONSIVIDADE ========== */
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .logo-img   { height: 72px; }
+    }
+
+    @media (max-width: 599px) {
+      .logo-img { height: 54px; }
+      .badge-brand span { display: none; }
+      .badge-back span  { display: none; }
+      .badge-back { padding: 8px 14px; }
+    }
+
+    @media (max-width: 360px) {
+      .logo-img { height: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link" aria-label="GvLar — Página inicial">
+        <img src="images/logo.png" alt="GvLar logotipo" class="logo-img">
+      </a>
+
+      <nav role="navigation" aria-label="Menu principal">
+        <ul class="nav-links">
+          <li><a href="index.html#sobre">Quem somos</a></li>
+          <li><a href="index.html#diferenciais">Diferenciais</a></li>
+          <li><a href="index.html#valores">Valores</a></li>
+          <li><a href="index.html#produtos">Produtos</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="vitrine.html" class="nav-active"><i class="fa-solid fa-store"></i> Vitrine</a></li>
+          <li>
+            <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="nav-cta">
+              <i class="fa-brands fa-whatsapp"></i> Peça já
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <nav id="navMenu" aria-label="Menu mobile" role="navigation">
+    <ul>
+      <li><a href="index.html#sobre"        class="nav-mob-link">Quem somos</a></li>
+      <li><a href="index.html#diferenciais" class="nav-mob-link">Diferenciais</a></li>
+      <li><a href="index.html#valores"      class="nav-mob-link">Valores</a></li>
+      <li><a href="index.html#produtos"     class="nav-mob-link">Produtos</a></li>
+      <li><a href="index.html#contato"      class="nav-mob-link">Contato</a></li>
+      <li><a href="vitrine.html" class="nav-mob-link nav-mob-active"><i class="fa-solid fa-store"></i> Vitrine online</a></li>
+      <li>
+        <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="nav-mob-link nav-cta-mob">
+          <i class="fa-brands fa-whatsapp"></i> Peça já pelo WhatsApp
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========== IFRAME ========== -->
+  <iframe
+    id="vitrine-frame"
+    src="https://gvlar.egestor.com.br/vitrine/"
+    title="Vitrine GvLar — produtos disponíveis"
+    loading="lazy"
+  ></iframe>
+
+  <!-- ========== BADGE INFERIOR ========== -->
+  <div class="vitrine-bottom-badge">
+    <div class="badge-brand">
+      <img src="images/logo.png" alt="GvLar">
+      <span>© 2025 GvLar · São José do Rio Preto/SP</span>
+    </div>
+    <a href="index.html" class="badge-back">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Voltar ao site</span>
+    </a>
+  </div>
+
+  <script>
+    // ========== HAMBURGER ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu   = document.getElementById('navMenu');
+    const navLinks  = navMenu.querySelectorAll('.nav-mob-link');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ========== IFRAME HEIGHT ==========
+    function adjustIframe() {
+      const iframe = document.getElementById('vitrine-frame');
+      iframe.style.height = (window.innerHeight - 80 - 63) + 'px';
+    }
+    window.addEventListener('resize', adjustIframe);
+    adjustIframe();
+  </script>
+</body>
+</html>

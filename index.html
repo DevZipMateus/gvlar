@@ -1231,6 +1231,129 @@
       .hero-float { display: none; }
     }
 
+    /* ========== VITRINE ========== */
+    .nav-vitrine {
+      background: rgba(255,255,255,0.12) !important;
+      color: var(--branco) !important;
+      border-radius: 50px !important;
+      padding: 8px 22px !important;
+      border: 1px solid rgba(255,255,255,0.25);
+      display: inline-flex !important;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-vitrine:hover {
+      background: rgba(255,255,255,0.22) !important;
+      border-color: rgba(255,255,255,0.55) !important;
+    }
+
+    .btn-vitrine-hero {
+      background: rgba(255,255,255,0.10);
+      color: var(--branco);
+      border-color: rgba(255,255,255,0.30);
+    }
+    .btn-vitrine-hero:hover {
+      background: rgba(255,255,255,0.20);
+      border-color: var(--branco);
+      transform: translateY(-2px);
+    }
+
+    .vitrine-cta-box {
+      background: linear-gradient(135deg, #0e1f3d 0%, #1C3568 100%);
+      border-radius: 20px;
+      padding: 56px 48px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+      box-shadow: 0 20px 60px rgba(28,53,104,0.30);
+      position: relative;
+      overflow: hidden;
+    }
+    .vitrine-cta-box::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(199,31,38,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .vitrine-cta-box::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .vitrine-cta-icon {
+      width: 90px; height: 90px;
+      min-width: 90px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 22px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      color: var(--branco);
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+    .vitrine-cta-content {
+      flex: 1;
+      position: relative; z-index: 1;
+    }
+    .vitrine-cta-content h3 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--branco);
+      margin-bottom: 10px;
+      font-family: var(--ff-titulo);
+    }
+    .vitrine-cta-content p {
+      color: rgba(255,255,255,0.72);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 500px;
+    }
+    .vitrine-cta-action {
+      position: relative; z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-vitrine {
+      background: var(--vermelho);
+      color: var(--branco);
+      border-color: var(--vermelho);
+      white-space: nowrap;
+      font-size: 1.05rem;
+      padding: 16px 40px;
+    }
+    .btn-vitrine:hover {
+      background: #a51920;
+      border-color: #a51920;
+      transform: translateY(-2px);
+    }
+    .vitrine-cta-note {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 1024px) {
+      .vitrine-cta-box { flex-direction: column; text-align: center; padding: 48px 36px; }
+      .vitrine-cta-content p { max-width: 100%; }
+      .vitrine-cta-action { width: 100%; }
+      .btn-vitrine { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 599px) {
+      .vitrine-cta-box { padding: 36px 24px; gap: 28px; }
+      .vitrine-cta-icon { width: 70px; height: 70px; min-width: 70px; font-size: 1.8rem; border-radius: 18px; }
+    }
+    @media (max-width: 480px) {
+      .vitrine-cta-box { padding: 28px 20px; gap: 22px; }
+    }
+
     /* Redução de movimento */
     @media (prefers-reduced-motion: reduce) {
       .fade-up, .fade-left, .fade-right, .fade-scale {
@@ -1258,6 +1381,11 @@
           <li><a href="#produtos">Produtos</a></li>
           <li><a href="#contato">Contato</a></li>
           <li>
+            <a href="vitrine.html" class="nav-vitrine">
+              <i class="fa-solid fa-store"></i> Vitrine
+            </a>
+          </li>
+          <li>
             <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="nav-cta">
               <i class="fa-brands fa-whatsapp"></i> Peça já
             </a>
@@ -1279,6 +1407,7 @@
       <li><a href="#valores" class="nav-mob-link">Valores</a></li>
       <li><a href="#produtos" class="nav-mob-link">Produtos</a></li>
       <li><a href="#contato" class="nav-mob-link">Contato</a></li>
+      <li><a href="vitrine.html" class="nav-mob-link"><i class="fa-solid fa-store"></i> Vitrine online</a></li>
       <li>
         <a href="https://wa.me/5517982253165" target="_blank" rel="noopener noreferrer" class="nav-mob-link nav-cta-mob">
           <i class="fa-brands fa-whatsapp"></i> Peça já pelo WhatsApp
@@ -1303,6 +1432,9 @@
           </a>
           <a href="#sobre" class="btn btn-outline">
             Conheça a GvLar <i class="fa-solid fa-arrow-down"></i>
+          </a>
+          <a href="vitrine.html" class="btn btn-vitrine-hero">
+            <i class="fa-solid fa-store"></i> Ver vitrine
           </a>
         </div>
         <div class="hero-stats">
@@ -1495,6 +1627,23 @@
           <i class="fa-brands fa-whatsapp"></i> Ver catálogo completo
         </a>
       </div>
+
+      <!-- Vitrine online -->
+      <div class="vitrine-cta-box fade-up">
+        <div class="vitrine-cta-icon">
+          <i class="fa-solid fa-store"></i>
+        </div>
+        <div class="vitrine-cta-content">
+          <h3>Explore nossa vitrine online</h3>
+          <p>Navegue por todos os produtos disponíveis com fotos, descrições e preços — sem sair de casa, a qualquer hora do dia. Encontre o que o seu lar precisa em segundos.</p>
+        </div>
+        <div class="vitrine-cta-action">
+          <a href="vitrine.html" class="btn btn-vitrine">
+            <i class="fa-solid fa-arrow-right"></i> Acessar a vitrine
+          </a>
+          <span class="vitrine-cta-note">Gratuito · Sem cadastro · Disponível 24h</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1622,6 +1771,7 @@
             <li><a href="#valores"><i class="fa-solid fa-chevron-right"></i> Missão e valores</a></li>
             <li><a href="#produtos"><i class="fa-solid fa-chevron-right"></i> Produtos</a></li>
             <li><a href="#contato"><i class="fa-solid fa-chevron-right"></i> Contato</a></li>
+            <li><a href="vitrine.html"><i class="fa-solid fa-store"></i> Vitrine online</a></li>
           </ul>
         </div>
 
